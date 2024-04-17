@@ -18,18 +18,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $user = User::factory()->create([
-            'email' => 'test@example.com',
-            'password' => bcrypt('123456'),
-        ]);
+        // $user = User::factory()->create([
+        //     'email' => 'test@example.com',
+        //     'password' => bcrypt('123456'),
+        // ]);
         $category = Category::factory()->create();
         $blog = Blog::factory()->create([
-            'user_id' => $user->id,
+            'user_id' => 1,
             'category_id'=> $category->id,
         ]);
         Comment::factory(10)->create([
             'blog_id'=> $blog->id,
-            'user_id' => $user->id,
+            'user_id' => 1,
         ]);
     }
 }

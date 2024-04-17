@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
         $formFields['status'] = 0;
 
-        Category::update($formFields);
+        $category::update($formFields);
 
         return redirect()->route('categories')->with('success', 'Category updated successfully.');
     }
