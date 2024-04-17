@@ -15,10 +15,9 @@ class ManagerRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->role > 1) {
-            return redirect()->route("home")->with("message","You are not authorized for this action.");
-        }
-
+        // if(auth()->user()->role > 1) {
+        //     return redirect()->route("home")->with("message","You are not authorized for this action.");
+        // }
         return $next($request);
     }
 }

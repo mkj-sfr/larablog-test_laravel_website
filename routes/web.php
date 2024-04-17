@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
@@ -34,12 +35,12 @@ Route::get('/blogs/{blog}/update', [BlogController::class,'update'])->middleware
 Route::get('/blogs/{blog}/delete', [BlogController::class,'delete'])->middleware('ManagerRole');
 
 // Crud on comments
-Route::get('/comments', [CommentController::class, 'index'])->middleware(
+Route::get('/comments', [CommentController::class, 'index'])->name('comments')->middleware('ManagerRole');
 
-Route::get('/comments/store', [Comment::class,'store']);
+// Route::get('/comments/store', [Comment::class,'store']);
 
-Route::get('/blogs/{blog}/edit', [Blog::class,'edit']);
-Route::get('/blogs/{blog}/update', [Blog::class,'update']);
+// Route::get('/blogs/{blog}/edit', [Blog::class,'edit']);
+// Route::get('/blogs/{blog}/update', [Blog::class,'update']);
 
-Route::get('/blogs/{blog}/delete', [Blog::class,'delete']);
+// Route::get('/blogs/{blog}/delete', [Blog::class,'delete']);
 

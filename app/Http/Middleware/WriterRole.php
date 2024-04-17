@@ -15,9 +15,9 @@ class WriterRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->role > 2) {
-            return redirect()->route("home")->with("message","You are not authorized for this action.");
-        }
+        // if(auth()->user()->role > 2) {
+        //     return redirect()->route("home")->with("message","You are not authorized for this action.");
+        // }
         
         return $next($request);
     }
