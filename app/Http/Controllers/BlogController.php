@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Comment;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Models\CommentsRelation;
 
 class BlogController extends Controller
 {
     public function index() {
         return view('blogs.index', [
+            'blogs_by_search' => Blog::latest()->filter(request(['tags', 'search', 'category', 'name']))->paginate(6),
             'blogs' => Blog::latest()->paginate(6),
+            'categories' => Category::all(),
         ]);
     }
 
