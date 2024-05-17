@@ -7,9 +7,22 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index() {
+        return view('users.index');    
+    }
+
+    
+    public function writer_request() {
+            auth()->user()->request_role = 1;
+            
+            redirect()->back()->with('message', 'Request sent.');
+    }
+
+
     public function create() {
         return view('users.create');
     }
+
 
     public function store() {
         $formFields = request()->validate([
@@ -31,9 +44,11 @@ class UserController extends Controller
         return redirect()->route('blogs')->with('message', 'Success! User created and logged in.');
     }
 
+
     public function login() {
         return view('users.login');
     }
+
 
     public function authenticate() {
         $formFields = request()->validate([
@@ -51,6 +66,7 @@ class UserController extends Controller
             'email' => 'The provided credentials do not match our records.'
         ])->onlyInput('email');
     }
+
 
     public function logout() {
         request()->session()->invalidate();

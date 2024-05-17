@@ -24,7 +24,7 @@
                       </div>
                       <div class="down-content">
                         <span>{{$blog->category()->first()->name}}</span>
-                        <a href="/blog/{{$blog->id}}"><h4>{{$blog->title}}</h4></a>
+                        <a href="/blogs/{{$blog->id}}"><h4>{{$blog->title}}</h4></a>
                         <ul class="post-info">
                           <li><a href="/blogs?name={{$blog->user()->first()->last_name}}">{{$blog->user()->first()->first_name . ' ' . $blog->user()->first()->last_name}}</a></li>
                            <li>{{$date->englishMonth . ' ' . $date->day . ', ' . $date->year}}</li> 

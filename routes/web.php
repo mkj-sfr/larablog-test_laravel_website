@@ -61,6 +61,3 @@ Route::get('/users/panel/categories', [UserController::class, 'categories'])->mi
 
 Route::get('/users/panel/users', [UserController::class, 'show_all_users'])->middleware('ManagerRole');
 
-// Route::get('/users/panel/user', )
-
-

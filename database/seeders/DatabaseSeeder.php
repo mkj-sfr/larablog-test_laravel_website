@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\Category;
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\comment;
+use App\Models\Category;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,13 +19,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // $user = User::factory()->create([
-        //     'email' => 'test@example.com',
-        //     'password' => bcrypt('123456'),
-        // ]);
+        $user = User::factory()->create([
+            'email' => 'test@example.com',
+            'password' => Hash::make('123456'),
+        ]);
         $category = Category::factory()->create();
         $blog = Blog::factory()->create([
-            'user_id' => 1,
+            'user_id' => $user->id,
             'category_id'=> $category->id,
         ]);
         Comment::factory(10)->create([

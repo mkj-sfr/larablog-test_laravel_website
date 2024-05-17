@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->tinyInteger('role'); // 0 for super admin (must be only one), 1 for managers, 2 for writers, 3 for users
+            $table->boolean('request_role'); // 1 for request writer role 0 for nothing
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
